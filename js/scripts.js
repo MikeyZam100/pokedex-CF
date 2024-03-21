@@ -10,8 +10,18 @@ let pokemonList = [
     {name:'Blastoise', height:'1.6 m', type:'water'},
 ];
 
-// displays the items onto the page
-
+// Display the items onto the page
 for (let i = 0; i < pokemonList.length; i++) {
-    document.write(pokemonList[i].name + ': ' + pokemonList[i].type)
+    const pokemon = pokemonList[i];
+    document.write(pokemon.name + ': ' + pokemon.height + ', ' + pokemon.type);
+
+    // Extract the height value without the ' m' suffix
+    const heightValue = pokemonList[i].height.slice(0, -2);
+
+    // Check if the height is above 1 meter
+    if (parseFloat(heightValue) > 1) {
+        document.write(' - Wow, that\'s a big Pokémon!');
+    }
+
+    document.write('<br>');
 }
