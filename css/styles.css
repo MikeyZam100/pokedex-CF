@@ -1,0 +1,11 @@
+/* styles the div block that is surrounding its corresponding js code*/
+
+.list-block {
+    background-color: green;
+    color: white;
+    margin: 50px 33%;
+    padding: 50px;
+    border: 20px;
+    border-color: black;
+    font-size: larger;
+}
