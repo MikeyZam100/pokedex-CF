@@ -11,6 +11,14 @@ let pokemonList = [
     {name:'Blastoise', height:'1.6 m', type:'water'},
 ];
 
+function getAll() {
+    return pokemonList
+}
+
+function add(pokemon) {
+    pokemonList.push(pokemon)
+}
+
 // Display the items onto the page
 pokemonList.forEach(function(pokemon) {
     document.write(pokemon.name + ': ' + pokemon.height + ', ' + pokemon.type);
@@ -27,4 +35,4 @@ pokemonList.forEach(function(pokemon) {
   });
 };
 
-pokemonRepository()
+pokemonRepository();
