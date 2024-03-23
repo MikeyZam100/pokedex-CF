@@ -1,4 +1,4 @@
-
+let pokemonRepository = function() {
 let pokemonList = [
     {name:'Bulbasaur', height:'0.7 m', type:'grass'}, 
     {name:'Ivysaur', height:'1 m', type:'grass'}, 
@@ -25,3 +25,6 @@ pokemonList.forEach(function(pokemon) {
   
     document.write('<br>');
   });
+};
+
+pokemonRepository()
