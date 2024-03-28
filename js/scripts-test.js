@@ -19,23 +19,17 @@ let pokemonRepository = (function() {
       pokemonList.push(pokemon);
     }
   
-    function displayPokemon(pokemon) {
-      console.log(pokemon.name + ': ' + pokemon.height + ', ' + pokemon.type);
+    pokemonList.forEach(function (pokemon) {
+      document.querySelector(ul)
+      let listItem = document.createElement('li')
+      let button = document.createElement('button')
+
+      button.innerText = pokemon.name
+      button.classList.add(pokemon-button)
+
+      button.appendChild(listItem)
+      listItem.appendChild(ul)
+    });
+});
   
-      let heightValue = pokemon.height.slice(0, -2);
-    
-      if (parseFloat(heightValue) > 1) {
-        console.log(' - Wow, that\'s a big Pokémon!');
-      }
-    }
-  
-    return {
-      getAll: getAll,
-      add: add,
-      displayPokemon: displayPokemon
-    };
-  })();
-  
-  pokemonRepository.getAll().forEach(function(pokemon) {
-    pokemonRepository.displayPokemon(pokemon);
-  });
+  pokemonRepository();
