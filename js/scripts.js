@@ -1,3 +1,46 @@
+(function () {
+  // Create a modal element
+  let modalContainer = document.createElement('div');
+  modalContainer.id = 'modal-container';
+  document.body.appendChild(modalContainer);
+
+  // Create a function to show the modal
+  function showModal(title, content) {
+    modalContainer.innerHTML = '';
+
+    let modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    let closeButtonElement = document.createElement('button');
+    closeButtonElement.classList.add('modal-close');
+    closeButtonElement.innerText = 'Close';
+
+    let titleElement = document.createElement('h1');
+    titleElement.innerText = title;
+
+    let contentElement = document.createElement('p');
+    contentElement.innerText = content;
+
+    modal.appendChild(closeButtonElement);
+    modal.appendChild(titleElement);
+    modal.appendChild(contentElement);
+    modalContainer.appendChild(modal);
+
+    modalContainer.classList.add('is-visible');
+
+    closeButtonElement.addEventListener('click', hideModal);
+    modalContainer.addEventListener('click', function (event) {
+      if (event.target === modalContainer) {
+        hideModal();
+      }
+    });
+  }
+
+  // Create a function to hide the modal
+  function hideModal() {
+    modalContainer.classList.remove('is-visible');
+  }
+
 let pokemonRepository = (function() {
   let pokemonList = [];
 
@@ -53,8 +96,8 @@ let pokemonRepository = (function() {
   //Function to show details of a pokemon
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
-    console.log(pokemon);
-  });
+      showModal(pokemon.name, `Height: ${pokemon.height}`);
+    });
   }
 
   // Function to add pokemon to the html page
@@ -84,9 +127,15 @@ let pokemonRepository = (function() {
   };
 })();
 
+  window.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+      hideModal();
+    }
+  });
+
 pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach(function(pokemon){
     pokemonRepository.addListItem(pokemon);
   });
-  
-});
+}); 
+})();
