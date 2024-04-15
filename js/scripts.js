@@ -1,11 +1,14 @@
 (function () {
-  // Create a modal element
-  let modalContainer = document.createElement('div');
-  modalContainer.id = 'modal-container';
-  document.body.appendChild(modalContainer);
+  let modalContainer = document.getElementById('modal-container');
 
   // Create a function to show the modal
   function showModal(title, content) {
+    if (!modalContainer) {
+      modalContainer = document.createElement('div');
+      modalContainer.id = 'modal-container';
+      document.body.appendChild(modalContainer);
+    }
+
     modalContainer.innerHTML = '';
 
     let modal = document.createElement('div');
