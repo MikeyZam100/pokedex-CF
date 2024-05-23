@@ -25,10 +25,11 @@
 
   #modal-container.is-visible {
     display: flex;
+
   }
   
   .modal {
-    background-color: #fff;
+    background-color: #84f169;
     max-width: 400px;
     padding: 20px;
     border-radius: 4px;
@@ -44,5 +45,5 @@
   
   .pokemon-button {
     cursor: pointer;
-    color: lightgreen;
+    
   }
